@@ -1,1 +1,1 @@
--record(time_dropdown, {?ELEMENT_BASE(element_time_dropdown), value, from="12:00am", "11:59pm", interval=60, interval_type, format="g:ia", postback, delegate}).
+-record(time_dropdown, {?ELEMENT_BASE(element_time_dropdown), value, from="12:00am", to="11:59pm", interval=60, interval_type=minutes, format="g:ia", postback, delegate}).

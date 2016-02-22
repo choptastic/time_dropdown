@@ -9,7 +9,7 @@
 	]).
 
 -spec reflect() -> [atom()].
-reflect() -> record_info(fields, yesno).
+reflect() -> record_info(fields, time_dropdown).
 
 -spec transform_element(#time_dropdown{}) -> #dropdown{}.
 transform_element(R = #time_dropdown{from=From, to=To, value=Value0,
@@ -21,7 +21,7 @@ transform_element(R = #time_dropdown{from=From, to=To, value=Value0,
 	DD#dropdown{value=Value, options=Options}.
 
 make_options(From, To, Interval, Type, Format) ->
-    Range = qdate:range(Type, Interval, From To),
+    Range = qdate:range(Type, Interval, From, To),
     lists:map(fun(T) ->
         Formatted = qdate:to_string(Format, T),
         #option{text=Formatted, value=Formatted}

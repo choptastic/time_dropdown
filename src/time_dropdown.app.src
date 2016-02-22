@@ -1,0 +1,12 @@
+%% vim ts=2 sw=2 et ft=erlang
+{application, time_dropdown,
+ [
+  {description, "A time dropdpown element for Nitrogen Web Framework"},
+  {vsn, "0.0.1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {env, []}
+ ]}.

@@ -17,7 +17,9 @@ transform_element(R = #time_dropdown{from=From, to=To, value=Value0,
 
 	DD = wf_utils:copy_fields(R, #dropdown{}),
     Options = make_options(From, To, Interval, Type, Format),
-    Value = qdate:to_string(Format, Value0),
+    Value = try qdate:to_string(Format, Value0)
+            catch _:_ -> ""
+            end,
 	DD#dropdown{value=Value, options=Options}.
 
 make_options(From, To, Interval, Type, Format) ->
